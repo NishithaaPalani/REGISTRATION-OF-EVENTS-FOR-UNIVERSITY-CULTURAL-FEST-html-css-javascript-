@@ -1,0 +1,196 @@
+<!DOCTYPE html>    
+<html>    
+<head>    
+    <title>REGISTRATION OF EVENTS(20181CSE0490)</title>    
+    <style type="text/css">    
+        body{    
+            font-family: Calibri;   
+            background-color: rgb(114, 21, 65);
+            color: rgb(240, 171, 194);
+        }    
+        input[type="text"] {    
+            width: 250px;    
+        }    
+        input[type="submit"], input[type="reset"] {    
+            width: 77px;    
+            height: 27px;    
+            position: relative;left: 180px;    
+        }    
+        form{    
+            text-align: center;    
+            font-family: Calibri;    
+            font-size: 20px;  
+            font-style: bold ;  
+            border: 8px solid rgb(243, 238, 240);    
+            width: 1000px;    
+            margin: 20px auto;    
+            background-color: rgb(240, 171, 194);
+            color: rgb(114, 21, 65);
+        }    
+        td {    
+            padding: 10px;    
+        }    
+        td:first-child {    
+            text-align: right;    
+            font-weight: bold;    
+        }    
+        td:last-child {    
+            text-align: left;  
+            font-weight: bold; } 
+    
+    </style>    
+    <script>    
+        function validate() {    
+            var uid = document.reg_form.uid;    
+            var pwd = document.reg_form.pwd;    
+            var name = document.reg_form.name;    
+            var phone = document.reg_form.phone;    
+            var branch  = document.reg_form.branch;    
+            var sem = document.reg_form.sem;    
+            var event = document.reg_form.event;   
+            var Strength = document.reg_form.Strength;
+            var gnames = document.reg_form.gnames;
+    
+              
+            if (uid.value.length <= 0) {    
+                alert("uid is required");    
+                uid.focus();    
+                return false;    
+            }    
+            if (pwd.value.length <= 0) {    
+                alert("password is required");    
+                pwd.focus();    
+                return false;    
+            }
+            if (name.value.length <= 0) {    
+                alert("Name is required");    
+                name.focus();    
+                return false;    
+            }     
+        
+            if (phone.value.length <= 0) {    
+                alert("phone no is required");    
+                phone.focus();    
+                return false;    
+            }    
+            if (branch.value.length <= 0) {    
+                alert("branch is required");    
+                branch.focus();    
+                return false;    
+            }    
+            if (sem.value.length <= 0) {    
+                alert("sem number is required");    
+                mobile.focus();    
+                return false;    
+            }   
+            
+            if (event.value == "select event") {    
+                alert("event is required");    
+                event.focus();    
+                return false;    
+            }   
+            
+            if(event.value=="group" && Strength.value <1 ) {
+                alert("Enter the details if group");
+                event.focus();    
+                return false;
+            }
+            if(event.value=="group" ) {
+                alert(" GROUP DANCE \n DRAMA \n DAMSHARAS \n MUSICAL CHAIR \n QUIZ ");
+                event.focus();    
+                return false;
+            }
+            if(event.value=="single" ) {
+                alert(" SOLO SINGING \n DEBATE \n ADVERTISEMENT SHOW \n CHESS \n PAINTING ");
+                event.focus();    
+                return false;
+            }
+            if(name.value.length>=1){
+            for(var i=0;i<name.value.length;i++)
+            {
+                if(!isNaN(name.value[i])){
+                    alert("Name cannot contain numbers")
+                    return false
+                }
+            }}
+            alert("sssss");
+               
+        }    
+    </script>    
+</head>    
+<body>    
+    <center><h1> REGISTRATION OF EVENTS FOR UNIVERSITY CULTURAL FEST</h1></center>    
+    <hr>    
+    <form method="" action="" name="reg_form" onsubmit="return validate()">    
+        <h2>REGISTRATION FORM</h2>    
+        <table>    
+            <tr>    
+                <td><label>UID: </label></td>    
+                <td>    
+                    <input type="text" id="u_id" name="uid" pattern="20181CSE0490" title="  Enter only 20181CSE0490"placeholder="20181CSE0XXX">   
+                </td>    
+            </tr>    
+            <tr>    
+                <td><label>PASSWORD: </label></td>    
+                <td>    
+                    <input type="password" id="pwd" placeholder="Password" name="pwd" pattern="(?=.*\d).{6,}" title="Must contain at least one number and at least 6 or more characters">  
+                </td>    
+            </tr>    
+            <tr>    
+                <td><label>NAME: </label></td>    
+                <td>    
+                    <input type="text"  name="name" placeholder="Name"  >    
+                </td>    
+            </tr>    
+            <tr>    
+                <td><label>MOBLIE NUMBER: </label></td>    
+            <td>    
+                <input type="tel" id="phone" name="phone" placeholder="Phone no" pattern="[0-9]{10}" title="Enter 10 digits only">    
+                </td>    
+            </tr>    
+            <tr>    
+                <td><label>BRANCH: </label></td>    
+                <td>    
+                    <input type="text" name="branch" placeholder="Branch(CSE,MEC,EEE etc..)" pattern="[A-Za-z]{3}" title="Enter only 3 letters" >    
+                </td>    
+            </tr>    
+            <tr>    
+                <td><label>SEMESTER: </label></td>    
+                <td>    
+                    <input type="number" name="sem" minlength="1" min="1" max="8" placeholder="(1-8)">    
+                </td>    
+            </tr>    
+            <tr>    
+            <td><label>SINGLE OR GROUP EVENT: </label></td>    
+                <td>    
+                    <select name="event">    
+                        <option value="select event">select event</option>    
+                        <option value="single">single</option>    
+                        <option value="group">group</option>      
+                    </select>    
+                </td>    
+            </tr>    
+            <tr>    
+                <td ><label>(IF GROUP)  </label></td>  
+                <td><label><b>GROUP STRENGTH: </b></label>   
+                        
+                        <input type="number" name="Strength"  placeholder="Number of Members">      
+                    </td>   
+                    <td><label>MEMBERS NAMES: </label>
+                        <textarea id="gnames" name="gnames" placeholder="gnames" rows="1" cols="20" >
+                        </textarea>
+                        </td> 
+                </tr>   
+            <tr>    
+                <td>    
+                    <input type="submit" name="submit" value="Submit">    
+                    <input type="reset" name="reset" value="Reset">    
+                </td>    
+            </tr>             
+        </table>    
+    </form>   
+    <footer>
+   <p align="center"><b> NISHITHAA PALANI (20181CSE0490) 07CSE08</b> </p>
+</footer>   
+</body>  
+</html> 
